@@ -29,7 +29,7 @@ function decideWinner(playerChoice,botChoice){
         'scissors': {'paper': 1, 'scissors': 0.5, 'rock': 0},
     };
     var playerScore = allpossibilites[playerChoice] [botChoice];
-    var botScore =  allpossibilites[playerChoice] [botChoice];
+    var botScore =  allpossibilites[botChoice] [playerChoice];
     return [playerScore, botScore];
 }
 function finalMessage([playerScore,botScore]){
@@ -59,12 +59,12 @@ function rpsFrontend(player, bot, msg){
 
     let messageDiv = document.createElement('div');
     messageDiv.innerHTML = `<strong>${msg['message']}</strong>`;
-    messageDiv.setAttribute('id','message');
+    messageDiv.setAttribute('id', 'message');
     messageDiv.style = `color: ${msg['color']}`
     document.getElementById('mainContainer').appendChild(messageDiv)
 
     let botDiv = document.createElement('div');
-    botDiv.setAttribute('class','box')
-    botDiv.innerHTML =`${textDBS[bot]}`
+    botDiv.setAttribute('class', 'box')
+    botDiv.innerHTML = `${textDBS[bot]}`
     document.getElementById('mainContainer').appendChild(botDiv)
 }
